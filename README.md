@@ -1,12 +1,19 @@
-# Getting Started with Create React App
+# Crypto website built with ReactJS and Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This website let user follow crypto trends
 
-## Available Scripts
+## Functionality
 
-In the project directory, you can run:
+- Functional Register/Login page using Firebase database.
+- Website shows most popular crypto currencies and trending currencies via Coingecko API.
+- As mentioned above website using Coingecko API.
+- User can select certain coins and add them to their watchlist.
+- Each coin has designated page with informations/prices/changes.
+- Dark Mode / Light Mode.
+- Check out live [website](https://coinbase-52f8f.web.app/)
 
-### `npm start`
+## Screenshots
+![screenshot of website 1]()
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
