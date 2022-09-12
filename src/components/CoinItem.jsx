@@ -35,7 +35,7 @@ function CoinItem({coin}) {
   return (
     <tr className='h-[75px] border-b overflow-hidden'>
       <td onClick={saveCoin}>
-        {savedCoin ? <AiOutlineHeart className='border-black' color='red'/> : <AiOutlineHeart/>}
+        {savedCoin ? <AiOutlineHeart color='red'/> : <AiOutlineHeart/>}
       </td>
       <td>{coin.market_cap_rank}</td>
       <td>
