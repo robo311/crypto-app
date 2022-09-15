@@ -1,29 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import {AiFillCaretUp, AiFillCaretDown} from "react-icons/ai"
-import { Sparklines, SparklinesLine, SparklinesNormalBand, SparklinesSpots } from 'react-sparklines';
+import { Sparklines, SparklinesLine} from 'react-sparklines';
 import { useParams } from 'react-router-dom';
+import ReactLoading from "react-loading"
 
 
 function CoinPage() {
 
     const [data, setData] = useState([])
     const params = useParams()
+    const [loading, setLoading] = useState(false)
 
     const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`
 
+    const coinData = async () => {
+        try{
+            await axios.get(url)
+                .then((response)=>{
+                    setData(response.data)
+                    console.log(response)
+                })
+                setLoading(true)      
+        }catch(error){
+            console.error(`ERROR:  ${error}`)
+        }
+    }
+
     useEffect(()=>{
-        axios.get(url)
-        .then((response)=>{
-            setData(response.data)
-        })
+        coinData()
+        setLoading(false)
     },[url])
 
-    console.log(data)
+    console.log(loading)
 
   return (
     <div className='rounded-div mt-6 py-4'>
-        <div className='flex justify-between'>
+        {loading ? (
+            <div className='flex justify-between'>
             <div className='flex-col'>
                 <div className='mt-5 flex'>
                     <img className='w-8 mr-2' src={data.image && data.image.small} alt={data.id}/>
@@ -70,6 +84,9 @@ function CoinPage() {
                 </div>
             </div>
         </div>
+        ) : (<div className='flex justify-center'>
+            <ReactLoading type='spin' color='black'/>
+        </div>)}
         {data.market_data && (
             <div className='grid gap-3 md:grid-cols-2 sm:grid-cols-1 mt-4'>
                 <div className='border-b'>
@@ -100,10 +117,10 @@ function CoinPage() {
                 </div>
             </div>
             )}
-        <div>
+        {loading && <div>
             <h1 className='text-2xl font-semibold mt-8 mb-4'>About {data.name} ({data.symbol?.toUpperCase()})</h1>
             <div className='about-text whitespace-pre-wrap tracking-wide' dangerouslySetInnerHTML={{__html: data.description?.en}}></div>
-        </div>
+        </div>}
     </div>
   )
 }

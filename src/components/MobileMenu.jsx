@@ -4,14 +4,18 @@ import { Link } from "react-router-dom"
 import Switcher from './Switcher'
 import "../helper/MobileMenu.css"
 
-function MobileMenu() {
+function MobileMenu({user, signOut}) {
   return (
     <Menu right>
-        <a href="">GDFGF</a>
-        <Link to="/">Profile</Link>
-        <Link to="/">Favorites</Link>
+            <Link to="/">Home</Link>
+            {user?.email && <Link to="/account">Account</Link>}
+            {user?.email ? (<button onClick={signOut}>Log Out</button>
+            ) : (
+            <Link to="/signin">
+                Sign In
+            </Link>)}
+        
         <Switcher/>
-        <Link to="/signin">Sign In</Link>
     </Menu>
   )
 }

@@ -17,7 +17,8 @@ function Switcher() {
 
   return (
     <div>
-        <DarkModeSwitch 
+        <DarkModeSwitch
+        className='md:my-0 my-5'
         onChange={toggleDarkMode} 
         checked={isDarkMode}
         size={25}

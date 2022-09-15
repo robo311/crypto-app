@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import CoinItem from './CoinItem'
 
 
 function Coins({coins}) {
 
     const [searchText, setSearchText] = useState("")
-
+    
   return (
     <div className='rounded-div my-10 py-4'>
         <div className='flex justify-end my-3'>

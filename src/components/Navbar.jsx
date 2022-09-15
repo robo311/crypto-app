@@ -41,9 +41,9 @@ function Navbar() {
                 Sign In
             </Link>)}
         </div>
-        {/* <div className='md:hidden block'>
-            <MobileMenu/>
-        </div> */}
+        <div className='md:hidden block'>
+            <MobileMenu signOut={handleSignOut} user={user}/>
+        </div>
     </div>
   )
 }

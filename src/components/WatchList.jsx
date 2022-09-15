@@ -4,7 +4,7 @@ import { doc, onSnapshot, updateDoc } from "firebase/firestore"
 import { db } from "../firebase"
 import { Link } from 'react-router-dom'
 import { AiOutlineClose } from "react-icons/ai"
-import { isEmpty } from '@firebase/util'
+
 
 function WatchList() {
     const [coins, setCoins] = useState([])
@@ -27,9 +27,6 @@ function WatchList() {
             console.log(e)
         }
     }
-
-
-    console.log(coins?.length)
 
 
     return (
