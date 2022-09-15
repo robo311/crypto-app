@@ -19,7 +19,6 @@ function CoinPage() {
             await axios.get(url)
                 .then((response)=>{
                     setData(response.data)
-                    console.log(response)
                 })
                 setLoading(true)      
         }catch(error){
@@ -31,8 +30,6 @@ function CoinPage() {
         coinData()
         setLoading(false)
     },[url])
-
-    console.log(loading)
 
   return (
     <div className='rounded-div mt-6 py-4'>
