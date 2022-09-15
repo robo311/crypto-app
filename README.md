@@ -34,5 +34,20 @@
 ### Additional info
 
 - Website is fully responsive (using Tailwind).
-- Mobile website using hambuger menu. (W.I.P)
+- Mobile website using hambuger menu. (Fully working)
+
+## Updates
+
+##### v1.0
+- First website release
+
+##### v1.1
+- Fixed heart button not being visible at light theme
+- Added text when watchlist is empty
+
+##### v1.2
+- Added hamburger menu for smaller devices
+- Fixed duplicated coins in watchlist
+- Added loading bar at coin page
+- Increased number of cryptocurrencies on page (10 -> 20)
 
